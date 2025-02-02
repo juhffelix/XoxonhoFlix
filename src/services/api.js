@@ -15,10 +15,10 @@ const options = {
         options
       );
       const data = await response.json();
-      return data.results || []; // Retorna a lista de filmes ou um array vazio
+      return data.results || []; 
     } catch (err) {
       console.error('Erro ao buscar filmes:', err);
-      return []; // Retorna um array vazio em caso de erro
+      return []; 
     }
   };
   

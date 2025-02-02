@@ -23,7 +23,7 @@ const Home = ({ movies }) => {
           </div>
           
           <div className="movie-details">
-          <div><Link to={`../about/${movie.id}`} className="movie-link">Acesse</Link></div>
+          <div><Link to={`../about/${movie.id}`} className="movie-link">Detalhes</Link></div>
             <p className="overview">{movie.overview}</p>
           </div>
         </article>
