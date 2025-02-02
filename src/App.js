@@ -1,8 +1,10 @@
-// src/App.js
+
 import React, { useEffect, useState } from 'react';
 import { fetchMovies } from './services/api'; 
 import RoutesApp from './routes';
 import Header from './components/Header';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
 
   return (
     <div>
+      <ToastContainer autoClose={4000}/>
       <Header />
       <RoutesApp movies={movies} /> 
     </div>

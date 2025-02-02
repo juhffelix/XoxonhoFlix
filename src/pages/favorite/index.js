@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { toast } from 'react-toastify';
+
 
 const Favorite = () => {
   const [item, setItem] = useState(JSON.parse(localStorage.getItem('@list')) || []); 
@@ -7,7 +9,8 @@ const Favorite = () => {
   const removeMovie = (id) => {
     const updatedList = item.filter(movie => movie.id !== id);
     localStorage.setItem('@list', JSON.stringify(updatedList));
-    setItem(updatedList);  // Atualiza a lista na tela
+    setItem(updatedList); 
+    toast.info("Filme removido da lista")
   };
 
   console.log(item);

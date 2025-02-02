@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 
 
@@ -13,13 +14,13 @@ const Sobre = ({ movies }) => {
     const hasMovie = savedMovies.some((savedMovie) => savedMovie.id === movie.id)
 
     if(hasMovie){
-        alert("Esse filme já está na sua lista.");
+        toast.info("Esse filme já está na sua lista.");
         return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@list", JSON.stringify(savedMovies));
-    alert("Filme favoritado.");
+    toast.success("Filme favoritado.");
   }
 
   if (!movie) {
