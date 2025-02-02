@@ -13,13 +13,13 @@ const Sobre = ({ movies }) => {
     const hasMovie = savedMovies.some((savedMovie) => savedMovie.id === movie.id)
 
     if(hasMovie){
-        alert("Esse filme ja tem");
+        alert("Esse filme já está na sua lista.");
         return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@list", JSON.stringify(savedMovies));
-    alert("Salvou");
+    alert("Filme favoritado.");
   }
 
   if (!movie) {

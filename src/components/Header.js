@@ -12,11 +12,9 @@ function Header() {
                         className="logo"
                     />
                 </Link>
-                
+                <Link to="/favorite" className='my-list'>Favoritos</Link>
                 <nav className="nav-links">
-                    {/* <Link to="/movies" className="nav-link">
-                        Filmes
-                    </Link> */}
+               
             
                 </nav>
             </div>

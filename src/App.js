@@ -7,7 +7,7 @@ import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [list, setList] = useState([]);
+  
 
   useEffect(() => {
     const getMovies = async () => {

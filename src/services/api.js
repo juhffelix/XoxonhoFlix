@@ -1,4 +1,4 @@
-// src/services/api.js
+
 
 const options = {
     method: 'GET',
