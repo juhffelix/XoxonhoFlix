@@ -1,46 +1,39 @@
-import logo from './logo.svg';
-import Header from './components/Header'
+import React, { useEffect, useState } from 'react';
+import { fetchMovies } from './services/api'; // Importa a função de fetch
 import RoutesApp from './routes';
+import Header from './components/Header';
 import './App.css';
-import Home from './pages/home'
-import Sobre from './pages/sobre'
-
-import { useEffect, useState } from 'react';
 
 function App() {
   const [movies, setMovies] = useState([]);
 
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-       Authorization: `Bearer ${process.env.REACT_APP_TMDB_API_KEY}`
-    }
+  const updateMovies = (newMovie) => {
+    const updatedMovies = [...movies, newMovie];
+    setMovies(updatedMovies); // Atualiza o estado
+    localStorage.setItem('movies', JSON.stringify(updatedMovies)); // Atualiza o localStorage
   };
-  
+
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=pt-BR&page=1', options);
-        const data = await response.json();
-        setMovies(data.results); 
-        console.log(data);
-      } catch (err) {
-        console.error(err); 
-      }
-    };
+    const storedMovies = localStorage.getItem('movies');
+    if (storedMovies) {
+      setMovies(JSON.parse(storedMovies));
+    } else {
+      const getMovies = async () => {
+        const fetchedMovies = await fetchMovies();
+        setMovies(fetchedMovies);
+        localStorage.setItem('movies', JSON.stringify(fetchedMovies));
+      };
+      getMovies();
+    }
+  }, []);
 
-    fetchMovies(); 
-  }, [])
   return (
-
-    <div> <nav><Header/></nav>
-    <div className="container">
-    <Home movies={movies} />
-    
-      </div>
-      </div>
+    <div>
+      <Header />
+      <RoutesApp movies={movies} updateMovies={updateMovies} /> {/* Passando o setMovies para os componentes filhos */}
+    </div>
   );
 }
+
 
 export default App;

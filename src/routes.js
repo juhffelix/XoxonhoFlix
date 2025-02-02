@@ -1,20 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// routes.js
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/home';
+import Sobre from './pages/about';
 
-
-import home from './pages/home';
-import sobre from './pages/sobre';
-
-function RoutesApp() {
+function RoutesApp({ movies }) {  // A props 'movies' é recebida aqui
   return (
-    <BrowserRouter>
-      <Routes>
-     
-        <Route path="/" element={<home />} />
-        
-        
-        <Route path="/sobre" element={<sobre />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home movies={movies} />} /> 
+      <Route path="/about/:id" element={<Sobre movies={movies} />} />
+    </Routes>
   );
 }
 
