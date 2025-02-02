@@ -4,6 +4,8 @@
 
 Uma aplicação web moderna desenvolvida para estudo e para explorar filmes com design responsivo e efeitos visuais.
 
+![Gif exemplo](./src/assets/xoxonhoflix.gif)
+
 
 ## ✨ Funcionalidades
 
@@ -21,6 +23,7 @@ Uma aplicação web moderna desenvolvida para estudo e para explorar filmes com 
 - Node.js (v16 ou superior)
 - npm (v8 ou superior)
 
+
 ### Instalação
 ```bash
 # Clone o repositório
@@ -35,6 +38,10 @@ npm install
 # Inicie a aplicação
 npm start
 ```
+
+## Gerar chave de API TMDB
+https://www.themoviedb.org/
+
 
 ## 🎨 Design Principles
 
