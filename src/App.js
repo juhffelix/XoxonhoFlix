@@ -7,17 +7,19 @@ import './App.css';
 
 function App() {
   const [movies, setMovies] = useState([]);
+  const [list, setList] = useState([]);
 
   useEffect(() => {
     const getMovies = async () => {
       const fetchedMovies = await fetchMovies(); 
       setMovies(fetchedMovies); 
-      console.log(movies)
       
     };
 
     getMovies();
   }, []);
+
+
 
   return (
     <div>
