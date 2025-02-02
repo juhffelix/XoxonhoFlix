@@ -4,6 +4,8 @@
 
 Uma aplicação web moderna desenvolvida para estudo e para explorar filmes com design responsivo e efeitos visuais.
 
+![Gif exemplo](./src/assets/xoxonhoflix.gif)
+
 
 ## ✨ Funcionalidades
 
